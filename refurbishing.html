@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Custom Orders — Luey Gaming Guy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <h1>Custom Orders & Modding</h1>
+    <p>Want a custom-painted Game Boy or a full mod? Submit a request below. Deposits hold your spot.</p>
+
+    <section class="gallery">
+      <h2>Past Builds</h2>
+      <div class="grid">
+        <!-- Replace with your images. Thumbnails open lightbox. -->
+        <img class="img-thumb" data-full="images/build1-full.jpg" src="images/build1-thumb.jpg" alt="build 1">
+        <img class="img-thumb" data-full="images/build2-full.jpg" src="images/build2-thumb.jpg" alt="build 2">
+        <img class="img-thumb" data-full="images/build3-full.jpg" src="images/build3-thumb.jpg" alt="build 3">
+      </div>
+    </section>
+
+    <section style="margin-top:26px;">
+      <h2>Deposit (non-refundable)</h2>
+      <p>A non-refundable deposit of <strong>$50</strong> (example) secures your spot and covers initial materials. Adjust amount as needed.</p>
+
+      <!-- SIMPLE PAYPAL "Buy Now" FORM: replace business with your PayPal business email -->
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block;">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="luey_gaming_guy@yahoo.com">
+        <input type="hidden" name="item_name" value="LGG Custom Order Deposit">
+        <input type="hidden" name="amount" value="50.00">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="return" value="https://yourdomain.com/custom-orders.html?paid=1">
+        <input type="hidden" name="cancel_return" value="https://yourdomain.com/custom-orders.html?paid=0">
+        <button class="btn" type="submit">Pay $50 Deposit</button>
+      </form>
+
+      <p style="margin-top:12px; color:var(--muted)">Tip: when you deploy, replace the business value with your PayPal business email. You can also use PayPal Checkout smart buttons for a nicer UX.</p>
+    </section>
+
+    <section style="margin-top:28px;">
+      <h2>Start a Request</h2>
+      <!-- Google Form embed: create a Google Form and paste the embed link in the iframe src below -->
+      <iframe src="https://https://docs.google.com/forms/d/e/1FAIpQLSdwLFFO3BUUGzM7018eBlYXWVjwNNbxdMCS6dtxpoEUdYUFHg/viewform?embedded=true" width="100%" height="800" frameborder="0">Loading…</iframe>
+      <p style="color:var(--muted)">Or email me at <a href="mailto:youremail@example.com">youremail@example.com</a> for custom quotes.</p>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="navbar.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
