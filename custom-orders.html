@@ -1,71 +1,229 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Custom Orders — Luey Gaming Guy</title>
-  <link rel="stylesheet" href="style.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mods & Custom Systems - Luey Gaming Guy</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<style>
+		.carousel-slide {
+			position: relative;
+			text-align: center;
+			color: #ffffff;
+		}
+		.carousel-slide .price-label {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(0,0,0,0.6);
+			padding: 5px 10px;
+			border-radius: 8px;
+			font-weight: bold;
+			font-family: AvenirB;
+		}
+		.tier-btn {
+			padding: 10px 15px;
+			margin: 5px;
+			font-size: 14px;
+			border-radius: 8px;
+			cursor: pointer;
+			border: 1px solid #010101;
+			background: #efefef;
+		}
+		.tier-btn.active {
+			background: #010101;
+			color: #ffffff;
+		}
+	</style>
 </head>
 <body>
-  <div id="navbar-placeholder"></div>
+	<header></header>
+	<div id="navbar-placeholder"></div>
+	<main>
 
-  <main class="container">
-    <h1>Custom Orders & Modding</h1>
-    <p>Want a custom-painted Game Boy or a full mod? Submit a request below. Deposits hold your spot.</p>
+		<!-- Banner -->
+		<div class="inside-banner" style="background-image: url(images/BannerCustoms.jpg);">
+			<div class="inside-banner-over">
+				<h2 style="color: #ffffff;">Mods & Custom Systems</h2>
+			</div>
+		</div>
 
-    <section class="gallery">
-      <h2>Past Builds</h2>
-      <div class="grid">
-        <!-- Replace with your images. Thumbnails open lightbox. -->
-        <img class="img-thumb" data-full="images/build1-full.jpg" src="images/build1-thumb.jpg" alt="build 1">
-        <img class="img-thumb" data-full="images/build2-full.jpg" src="images/build2-thumb.jpg" alt="build 2">
-        <img class="img-thumb" data-full="images/build3-full.jpg" src="images/build3-thumb.jpg" alt="build 3">
-      </div>
-    </section>
+		<!-- Intro Box -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 30px;">
+			<div style="background: #efefef; border-radius: 20px; padding: 25px; display: inline-block; max-width: 900px;">
+				<h2>Custom Consoles & Game Boys</h2>
+				<div class="contentnorm" style="text-align: left;">
+					<p>Turn your favorite consoles into one-of-a-kind creations! From custom Game Boys to classic home consoles with new shells, I can bring your ideas to life with high-quality mods and designs. Request characters, themes, or colors — if it’s possible, I’ll make it happen.</p>
+					<ul>
+						<li>Game Boys: Original, Pocket, Color, Advance, Advance SP</li>
+						<li>Classic consoles: NES, SNES, N64, GameCube, Wii</li>
+						<li>Custom shells, themed designs, IPS upgrades, and more</li>
+					</ul>
+					<p>Click a Game Boy model below to see available tiers and example builds.</p>
+				</div>
+			</div>
+		</div>
 
-    <section style="margin-top:26px;">
-      <h2>Deposit (non-refundable)</h2>
-      <p>A non-refundable deposit of <strong>$50</strong> (example) secures your spot and covers initial materials. Adjust amount as needed.</p>
+		<!-- Game Boy Selector -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 30px;">
+			<select id="gb-model-selector" style="padding: 10px; font-size: 16px; border-radius: 8px;">
+				<option value="">Select a Game Boy Model</option>
+				<option value="original">Original Game Boy</option>
+				<option value="pocket">Game Boy Pocket</option>
+				<option value="color">Game Boy Color</option>
+				<option value="advance">Game Boy Advance (No USB-C)</option>
+				<option value="advance-usbc">Game Boy Advance (With USB-C)</option>
+				<option value="sp">Game Boy Advance SP</option>
+			</select>
+		</div>
 
-      <!-- SIMPLE PAYPAL "Buy Now" FORM: replace business with your PayPal business email -->
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block;">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="luey_gaming_guy@yahoo.com">
-        <input type="hidden" name="item_name" value="LGG Custom Order Deposit">
-        <input type="hidden" name="amount" value="50.00">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="return" value="https://yourdomain.com/custom-orders.html?paid=1">
-        <input type="hidden" name="cancel_return" value="https://yourdomain.com/custom-orders.html?paid=0">
-        <button class="btn" type="submit">Pay $50 Deposit</button>
-      </form>
+		<!-- Tiers -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 20px;">
+			<div id="gb-tiers" style="display: none;">
+				<button class="tier-btn" data-tier="1">Tier 1</button>
+				<button class="tier-btn" data-tier="2">Tier 2</button>
+				<button class="tier-btn" data-tier="3">Tier 3</button>
+			</div>
+		</div>
 
-      <p style="margin-top:12px; color:var(--muted)">Tip: when you deploy, replace the business value with your PayPal business email. You can also use PayPal Checkout smart buttons for a nicer UX.</p>
-    </section>
+		<!-- Carousel Placeholder -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 30px;">
+			<div class="gb-carousel" style="max-width: 700px; margin: 0 auto;">
+				<!-- Slides will be injected by JS -->
+			</div>
+			<p style="margin-top: 15px;">Prices do not include taxes, shipping, or handling.</p>
+		</div>
 
-    <section style="margin-top:28px;">
-      <h2>Start a Request</h2>
-      <!-- Google Form embed: create a Google Form and paste the embed link in the iframe src below -->
-     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwLFFO3BUUGzM7018eBlYXWVjwNNbxdMCS6dtxpoEUdYUFHg/viewform?embedded=true" width="640" height="1090" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      <p style="color:var(--muted)">Or email me at <a href="mailto:youremail@example.com">youremail@example.com</a> for custom quotes.</p>
-    </section>
-  </main>
+		<!-- Classic Console Carousel -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 50px;">
+			<h2>Other Consoles (Reshells & Mods)</h2>
+			<div class="console-carousel" style="max-width: 800px; margin: 0 auto;">
+				<div><img src="images/MerchPic.png" alt="NES Reshell" style="width:100%; border-radius: 10px;"></div>
+				<div><img src="images/MerchPic.png" alt="SNES Reshell" style="width:100%; border-radius: 10px;"></div>
+				<div><img src="images/MerchPic.png" alt="N64 Reshell" style="width:100%; border-radius: 10px;"></div>
+				<div><img src="images/MerchPic.png" alt="GameCube Reshell" style="width:100%; border-radius: 10px;"></div>
+				<div><img src="images/MerchPic.png" alt="Wii Reshell" style="width:100%; border-radius: 10px;"></div>
+			</div>
+			<p style="margin-top: 10px;">Themes, characters, and custom designs can be requested even if not shown.</p>
+		</div>
 
-<div id="footer-placeholder"></div>
+		<!-- How It Works -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 50px;">
+			<div style="background: #efefef; border-radius: 20px; padding: 25px; display: inline-block; max-width: 700px;">
+				<h2>How Custom Orders Work</h2>
+				<div class="contentnorm" style="text-align: left;">
+					<ul>
+						<li>Contact me through the <a href="contact.html">contact page</a> with your idea</li>
+						<li>Discuss details, pricing, and timeline</li>
+						<li>Send your console if needed (or I can build from scratch)</li>
+						<li>I create your custom system and ship it back</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom CTA / Disclaimer -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 40px; margin-bottom: 50px;">
+			<div style="background: #efefef; border-radius: 20px; padding: 25px; display: inline-block; max-width: 750px;">
+				<div class="contentnorm" style="text-align: left;">
+					<p><strong>Note:</strong> Custom orders may have long wait times depending on availability of shells and base consoles. Buyer pays shipping. Estimates are provided before work begins. Some mods or consoles may be limited due to availability or technical restrictions.</p>
+					<div style="text-align: center; margin-top: 15px;">
+						<a href="contact.html" class="ban-btn" style="color: #010101; font-family: AvenirB;">Contact Me</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+	<div id="footer-placeholder"></div>
 	<script src="navbar.js"></script>
-</body>
-<script>
-function navFunction() {
-	var x = document.getElementById("navLinks");
-	if (x.style.display === "block") {
-		x.style.display = "none";
-	} else {
-		x.style.display = "block";
+
+	<script>
+	fetch('footer.html')
+		.then(response => response.text())
+		.then(data => {
+			document.getElementById('footer-placeholder').innerHTML = data;
+		});
+
+	// Pricing data (for display on slides)
+	const pricing = {
+		"original": {1: "$135", 2: "$160"},
+		"pocket": {1: "$125", 2: "$150"},
+		"color": {1: "$145", 2: "$160", 3: "$195"},
+		"advance": {1: "$165", 2: "$180", 3: "$195"},
+		"advance-usbc": {1: "$185", 2: "$200"},
+		"sp": {1: "$175", 2: "$190", 3: "$205"}
+	};
+
+	const maxSlides = 5;
+
+	function generateSlides(model, tier){
+		const container = $('.gb-carousel');
+		container.slick('unslick'); // reset carousel
+		container.empty();
+
+		for(let i=1;i<=maxSlides;i++){
+			const price = pricing[model][tier];
+			const slide = `<div class="carousel-slide">
+				<img src="images/MerchPic.png" alt="Example ${i}" style="width:100%; border-radius:10px;">
+				<div class="price-label">${price} (Tier ${tier})</div>
+			</div>`;
+			container.append(slide);
+		}
+
+		container.slick({
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			dots: true
+		});
 	}
-}
-fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-      });
-</script>
+
+	$(document).ready(function(){
+		// Hide tiers initially
+		$('#gb-tiers').hide();
+
+		$('#gb-model-selector').on('change', function(){
+			const model = $(this).val();
+			if(model){
+				$('#gb-tiers').show();
+				$('.tier-btn').removeClass('active');
+
+				// Hide tier 3 if not available
+				$('.tier-btn').show();
+				if(!pricing[model][3]){
+					$('.tier-btn[data-tier="3"]').hide();
+				}
+			}else{
+				$('#gb-tiers').hide();
+				$('.gb-carousel').slick('unslick').empty();
+			}
+		});
+
+		$('.tier-btn').click(function(){
+			const tier = $(this).data('tier');
+			const model = $('#gb-model-selector').val();
+			$('.tier-btn').removeClass('active');
+			$(this).addClass('active');
+			generateSlides(model, tier);
+		});
+
+		// Initialize classic console carousel
+		$('.console-carousel').slick({
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			dots: true
+		});
+	});
+	</script>
+
+</body>
 </html>
