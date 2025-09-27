@@ -1,71 +1,147 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Custom Orders — Luey Gaming Guy</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refurbishing | YourSiteName</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-specific styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #111;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .images-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .images-row img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .cta-button {
+            display: block;
+            width: 220px;
+            margin: 30px auto 0;
+            padding: 15px;
+            background-color: #1a73e8;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #155ab6;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 20px;
+            background-color: #f2f2f2;
+            padding: 15px;
+            border-left: 4px solid #1a73e8;
+        }
+        .paypal-img {
+            display: block;
+            max-width: 200px;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
-  <div id="navbar-placeholder"></div>
 
-  <main class="container">
-    <h1>Custom Orders & Modding</h1>
-    <p>Want a custom-painted Game Boy or a full mod? Submit a request below. Deposits hold your spot.</p>
+    <!-- Banner -->
+    <img src="BannerGaming.png" alt="Refurbishing Banner" class="banner">
 
-    <section class="gallery">
-      <h2>Past Builds</h2>
-      <div class="grid">
-        <!-- Replace with your images. Thumbnails open lightbox. -->
-        <img class="img-thumb" data-full="images/build1-full.jpg" src="images/build1-thumb.jpg" alt="build 1">
-        <img class="img-thumb" data-full="images/build2-full.jpg" src="images/build2-thumb.jpg" alt="build 2">
-        <img class="img-thumb" data-full="images/build3-full.jpg" src="images/build3-thumb.jpg" alt="build 3">
-      </div>
-    </section>
+    <div class="container">
 
-    <section style="margin-top:26px;">
-      <h2>Deposit (non-refundable)</h2>
-      <p>A non-refundable deposit of <strong>$50</strong> (example) secures your spot and covers initial materials. Adjust amount as needed.</p>
+        <!-- Page Intro -->
+        <div class="section">
+            <h1>Console Refurbishing & Repairs</h1>
+            <p>Bring your classic consoles back to life! We specialize in refurbishing Nintendo and PlayStation systems, performing deep cleanings, repairs, and component replacements. Whether it’s a dusty Nintendo 64 or a PlayStation 2 that needs troubleshooting, we can help restore it to peak performance.</p>
+        </div>
 
-      <!-- SIMPLE PAYPAL "Buy Now" FORM: replace business with your PayPal business email -->
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block;">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="luey_gaming_guy@yahoo.com">
-        <input type="hidden" name="item_name" value="LGG Custom Order Deposit">
-        <input type="hidden" name="amount" value="50.00">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="return" value="https://yourdomain.com/custom-orders.html?paid=1">
-        <input type="hidden" name="cancel_return" value="https://yourdomain.com/custom-orders.html?paid=0">
-        <button class="btn" type="submit">Pay $50 Deposit</button>
-      </form>
+        <!-- Services -->
+        <div class="section">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Deep cleaning and cosmetic refurbishing of Nintendo consoles (excluding Switch & Switch 2)</li>
+                <li>Refurbishing and repair for PlayStation 1 & 2 consoles</li>
+                <li>Troubleshooting and component repairs</li>
+                <li>Joy-Con drift repairs for Switch controllers</li>
+            </ul>
+        </div>
 
-      <p style="margin-top:12px; color:var(--muted)">Tip: when you deploy, replace the business value with your PayPal business email. You can also use PayPal Checkout smart buttons for a nicer UX.</p>
-    </section>
+        <!-- Before/After -->
+        <div class="section">
+            <h2>Before & After</h2>
+            <div class="images-row">
+                <img src="MerchPic.png" alt="Before Refurbishing">
+                <img src="MerchPic.png" alt="After Refurbishing">
+            </div>
+        </div>
 
-    <section style="margin-top:28px;">
-      <h2>Start a Request</h2>
-      <!-- Google Form embed: create a Google Form and paste the embed link in the iframe src below -->
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwLFFO3BUUGzM7018eBlYXWVjwNNbxdMCS6dtxpoEUdYUFHg/viewform?embedded=true" width="640" height="1090" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      <p style="color:var(--muted)">Or email me at <a href="mailto:youremail@example.com">youremail@example.com</a> for custom quotes.</p>
-    </section>
-  </main>
+        <!-- How It Works -->
+        <div class="section">
+            <h2>How It Works</h2>
+            <p>All transactions are conducted online. Here's our process:</p>
+            <ul>
+                <li>Contact us through our <a href="contact.html">contact page</a> to request a refurbishing service and get an estimate.</li>
+                <li>Ship your console to us at your cost. Please include payment for the service and any parts needed through PayPal.</li>
+                <li>We perform the requested cleaning, refurbishing, or repairs.</li>
+                <li>Once completed, your console will be shipped back to you (shipping at your cost).</li>
+            </ul>
+            <img src="PayPal.png" alt="PayPal Payment" class="paypal-img">
+        </div>
 
-<div id="footer-placeholder"></div>
-	<script src="navbar.js"></script>
+        <!-- Disclaimers -->
+        <div class="section disclaimer">
+            <p>Important Notes:</p>
+            <ul>
+                <li>We cannot offer free shipping. Shipping to us and back is the responsibility of the customer.</li>
+                <li>Some consoles may be unrepairable due to water damage, prior modifications, or damaged contacts. In such cases, the service fee will still apply, but we do not charge extra, and shipping costs are non-refundable.</li>
+                <li>We currently operate from a private home on a military base in Oceanside, CA. All services are online only.</li>
+                <li>Timing depends on the console and service requested; we provide estimates before you ship anything.</li>
+            </ul>
+        </div>
+
+        <!-- CTA -->
+        <a href="contact.html" class="cta-button">Request a Refurb</a>
+
+    </div>
+
 </body>
-<script>
-function navFunction() {
-	var x = document.getElementById("navLinks");
-	if (x.style.display === "block") {
-		x.style.display = "none";
-	} else {
-		x.style.display = "block";
-	}
-}
-fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-      });
-</script>
 </html>
