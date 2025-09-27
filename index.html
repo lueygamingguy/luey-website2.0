@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Luey Gaming Guy</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+	</header>
+	<div id="navbar-placeholder"></div>
+	<main>
+		<div class="ov-cont ban-cont">
+			<div class="ov-cont ban-txt">
+				<span class="ban-style">Twitch Streamer.</span><br />
+				<span class="ban-style">Online Retro Game Store.</span><br />
+				<span class="ban-style">Repairs & Mods.</span><br />
+				<a href="https://www.twitch.tv/luey_gaming_guy" target="_blank" class="ban-btn" style="margin-right: 30px;">VIEW STREAM</a> <a href="https://discord.com/invite/J9PaPxggd8" target="_blank" class="ban-btn">JOIN COMMUNITY</a>
+			</div>
+		</div>
+		<div class="ov-cont content">
+			<div class="ov-cont box-left" style="background: #efefef; border-radius: 20px; position: relative;">
+				<span class="bubble-tail"><!--&--></span>
+				<h2>Luey Gaming Guy</h2>
+				<div class="contentnorm">
+					Luey Gaming Guy Inc. is a full gaming and community experience for Gamers from all walks of life. From having a store where we sell retro video games and consoles (and sometimes new), to Live streaming and chatting with viewers in Twitch and Discord, there is a slice of pie for everyone to enjoy, including YOU!
+				</div>
+				<a href="" class="ban-btn"" style="color: #010101; font-family: AvenirB;">LEARN MORE</a>
+			</div>
+			<div class="ov-cont box-right">
+				<img class="box-right-img" src="images/ShotoMascot.png">
+			</div>
+			<div class="ov-cont box-left" style="width: 100%; text-align: center; padding-top: 0px;">
+				<h2>Services</h2>
+			</div>
+		</div>
+		<div class="ov-cont content" style="background: #1D1D1D; position: relative;">
+			<a href="" class="serv-box"><span class="serv-box-txt"><img src="images/IconShop.png"><br />SHOP</span></a>
+			<a href="" class="serv-box"><span class="serv-box-txt"><img src="images/IconGaming.png"><br />GAMING</span></a>
+			<a href="" class="serv-box"><span class="serv-box-txt"><img src="images/IconRefurbish.png"><br />REFURBISHING</span></a>
+			<a href="" class="serv-box"><span class="serv-box-txt"><img src="images/IconModding.png"><br />MODS/CUSTOMS</span></a>
+		</div>
+		<div class="ov-cont content" style="background: #1D1D1D; position: relative;">
+			<div class="ov-cont box-right" style="background-image: url('images/BackgroundLines.gif'); background-size: cover; background-position: 50% 50%;">
+				<img class="box-right-img" src="images/Rogue.png">
+			</div>
+			<div class="ov-cont box-left" style="background: rgba(0,0,0,0);">
+				<h2 style="color: #ffffff;">Rogue Energy Partner</h2>
+				<div class="contentnorm" style="color: #ffffff;">
+					<b>10% OFF CODE: LueyGaming</b><br /><br />
+					With all the great flavors and caffeine/caffeine-free choices, you can't go wrong with Rogue!<br />
+				</div>
+				<a href="https://rogueenergy.com/?ref=Lueygaming" target="_blank" class="ban-btn"" style="font-family: AvenirB;">SHOP ROGUE</a>
+			</div>
+		</div>
+		<div class="ov-cont content" style="position: relative;">
+			<div class="ov-cont box-right" style="width: 100%;">
+				<img src="images/LGGLogo.png" class="stream-logo"><br />
+				<iframe src="https://player.twitch.tv/?channel=luey_gaming_guy&parent=www.example.com" allowfullscreen="true" scrolling="no" class="stream-feed"></iframe>
+				<img class="emotes" src="images/ShotoHuh.gif">
+				<img class="emotes" src="images/ShotoCozy.png">
+				<img class="emotes" src="images/ShotoArrive.gif">
+				<img class="emotes" src="images/ShotoNotes.gif">
+				<img class="emotes" src="images/ShotoKawaii.png">
+				<img class="emotes" src="images/ShotoLaugh.gif">
+			</div>
+		</div>
+	</main>
+	<div id="footer-placeholder"></div>
+	<script src="navbar.js"></script>
+</body>
+<script>
+function navFunction() {
+	var x = document.getElementById("navLinks");
+	if (x.style.display === "block") {
+		x.style.display = "none";
+	} else {
+		x.style.display = "block";
+	}
+}
+fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+</script>
+</html>
