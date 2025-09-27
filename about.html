@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About - Luey Gaming Guy</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+	</header>
+	<div id="navbar-placeholder"></div>
+	<main>
+		<div class="inside-banner" style=" background-image: url(images/BannerAbout.jpg);">
+			<div class="inside-banner-over">
+				<h2 style="color: #ffffff;">About</h2>
+			</div>
+		</div>
+		<div class="ov-cont content">
+			<div class="ov-cont box-left" style="background: #efefef; border-radius: 20px; position: relative;">
+				<h2>Meet Luey</h2>
+				<div class="contentnorm">
+					I’m Luey, a passionate retro video game enthusiast and content creator. My journey in the gaming world began in 2019 when I started reselling broken Game Boys and consoles, repairing them, and selling them on eBay for profit. This hobby sparked a deep love for collecting and customizing retro games and consoles.
+					<br /><br />
+					In 2020, I took my passion to the next level by launching my Twitch channel. Though I have had to take breaks due to my active duty enlistment in the military, I’m thrilled to return to streaming full-time and share engaging content across various platforms. Whether it’s live streams on Twitch, videos on YouTube, or posts and stories on social media, I am committed to connecting with fellow gamers and retro enthusiasts regularly. I also operate a store on eBay and Whatnot, where I buy, sell, and trade video games and consoles. My specialization includes customizing Game Boys with IPS screen mods and unique shells, bringing a new life to these classic devices.
+				</div>
+				<a href="" class="ban-btn"" style="color: #010101; font-family: AvenirB;">SHOP</a>
+			</div>
+			<div class="ov-cont box-right">
+				<img class="box-right-img" src="images/LueyProfile.png">
+			</div>
+		</div>
+		<div class="ov-cont content">
+			<div class="ov-cont box-right">
+				<img class="box-right-img" src="images/EatSleepGame.png">
+			</div>
+			<div class="ov-cont box-left" style="background: #efefef; border-radius: 20px; position: relative;">
+				<!--<h2>Luey Gaming Guy</h2>-->
+				<div class="contentnorm">
+					In May 2023, I married my wonderful wife, Meaghan (also known as Mirvi_Gaming_Gal). Together, we have adopted four adorable huskies, and Shoto, our white husky, has even become an official member of our team, representing our brand as a mascot.
+					<br /><br />
+					While we may be a small company now, our goal is to grow alongside the amazing community of gamers we meet along the way. Every day, we connect with fellow enthusiasts who share our passion, and we strive to turn our side hobby into a thriving business built on love for what we do.
+					<br /><br />
+					Thank you for joining me on this exciting journey in the retro gaming world. Let’s connect, share experiences, and keep the spirit of gaming alive!
+				</div>
+			</div>
+		</div>
+	</main>
+	<div id="footer-placeholder"></div>
+	<script src="navbar.js"></script>
+</body>
+<script>
+function navFunction() {
+	var x = document.getElementById("navLinks");
+	if (x.style.display === "block") {
+		x.style.display = "none";
+	} else {
+		x.style.display = "block";
+	}
+}
+fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+</script>
+</html>
