@@ -1,47 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shop — Luey Gaming Guy</title>
-  <link rel="stylesheet" href="style.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shop - Luey Gaming Guy</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="navbar-placeholder"></div>
+	<header>
+	</header>
+	<div id="navbar-placeholder"></div>
+	<main>
+		<!-- Banner -->
+		<div class="inside-banner" style=" background-image: url(images/BannerShop.jpg);">
+			<div class="inside-banner-over">
+				<h2 style="color: #ffffff;">Shop</h2>
+			</div>
+		</div>
 
-  <main class="container">
-    <h1>Shop</h1>
-    <p>I list items on eBay & Whatnot — links below. (Optional: I can add a lightweight cart later.)</p>
+		<!-- eBay Section -->
+		<div class="ov-cont content">
+			<div class="ov-cont box-left" style="background: #efefef; border-radius: 20px; position: relative;">
+				<h2>eBay</h2>
+				<div class="contentnorm">
+					My eBay store is your go-to destination for a wide variety of games and consoles, spanning from the original Xbox all the way to the Nintendo Switch and beyond. I post a large portion of my inventory here, making it easy to browse and snag exactly what you’re looking for. Whether you’re after a classic favorite or the latest retro finds, you’ll discover quality, tested items ready to ship. eBay allows me to connect with collectors and gamers worldwide, keeping my store stocked with new and exciting additions regularly.
+				</div>
+				<a href="https://www.ebay.com/str/lueygamingguy" target="_blank" class="ban-btn" style="color: #010101; font-family: AvenirB;">Visit eBay</a>
+			</div>
+			<div class="ov-cont box-right">
+				<img class="box-right-img" src="images/EbayCustom.png">
+			</div>
+		</div>
 
-    <div class="links-grid" style="display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:18px;">
-      <div class="card">
-        <h3>eBay Store</h3>
-        <p>Find consoles, controllers, and retro games.</p>
-        <a class="btn" href="https://www.ebay.com/str/lueygamingguy" target="_blank" rel="noopener">Open eBay Store</a>
-      </div>
+		<!-- Merch Section -->
+		<div class="ov-cont content">
+			<div class="ov-cont box-right">
+				<img class="box-right-img" src="images/MerchPic.png">
+			</div>
+			<div class="ov-cont box-left" style="background: #efefef; border-radius: 20px; position: relative;">
+				<h2>Merchandise</h2>
+				<div class="contentnorm">
+					Step into the world of Luey Gaming Guy merch — all designed by me, for fans of the brand. From cozy hoodies and stylish headbands to fun pillows, hats, and stickers, every item features my logos and custom designs, bringing a unique Luey Gaming Guy touch to your wardrobe and gaming space. Whether you’re showing off your love for retro games or decking out your setup, these high-quality, branded pieces let you represent the community in style while supporting the channel and store.
+				</div>
+				<a href="https://streamlabs.com/luey_gaming_guy/merch" target="_blank" class="ban-btn" style="color: #010101; font-family: AvenirB;">Shop Merch</a>
+			</div>
+		</div>
 
-      <div class="card">
-        <h3>Whatnot</h3>
-        <p>Live drops — check the schedule on my profile.</p>
-        <a class="btn" href="https://www.whatnot.com/@luey_gaming_guy" target="_blank" rel="noopener">Open Whatnot</a>
-      </div>
-    </div>
+		<!-- Whatnot Section -->
+		<div class="ov-cont content">
+			<div class="ov-cont box-left" style="background: #efefef; border-radius: 20px; position: relative;">
+				<h2>Whatnot</h2>
+				<div class="contentnorm">
+					Whatnot is where my specialty comes to life. Here, you’ll find custom Game Boys, from the originals to the SP, along with DS Lites, PSP systems, and even home consoles brought to the next level. While I still sell standard games and consoles, the focus is on curated, one-of-a-kind pieces that showcase my modding expertise — IPS screens, custom shells, and fully repaired retro devices. Whatnot allows me to connect live with collectors, enthusiasts, and fellow gamers, offering a chance to grab exclusive, limited items directly from the stream.
+				</div>
+				<a href="https://www.whatnot.com/user/luey_gaming_guy" target="_blank" class="ban-btn" style="color: #010101; font-family: AvenirB;">Visit Whatnot</a>
+			</div>
+			<div class="ov-cont box-right">
+				<img class="box-right-img" src="images/WhatnotCustom.png">
+			</div>
+		</div>
+	</main>
 
-    <hr style="margin:30px 0;">
-    <h2>Featured</h2>
-    <div class="grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
-      <!-- sample product cards -->
-      <div class="card">
-        <img src="images/sample-game.jpg" alt="sample">
-        <h4>Sample Game — Title</h4>
-        <p class="muted">Condition: Very Good</p>
-        <a class="btn-outline" href="https://www.ebay.com/itm/388030510271?itmmeta=01K64CKSWKAE95A1CM0X5FDV4B&hash=item5a586bb4bf:g:uh4AAeSwp~dnxp-D" target="_blank">View on eBay</a>
-      </div>
-    </div>
-  </main>
-
-
-<div id="footer-placeholder"></div>
+	<div id="footer-placeholder"></div>
 	<script src="navbar.js"></script>
 </body>
 <script>
