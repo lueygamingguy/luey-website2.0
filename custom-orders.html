@@ -161,6 +161,15 @@
 	<script src="navbar.js"></script>
 
 	<script>
+function navFunction() {
+	var x = document.getElementById("navLinks");
+	if (x.style.display === "block") {
+		x.style.display = "none";
+	} else {
+		x.style.display = "block";
+	}
+}
+
 	fetch('footer.html')
 		.then(response => response.text())
 		.then(data => {
