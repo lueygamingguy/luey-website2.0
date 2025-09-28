@@ -6,14 +6,29 @@
 	<title>Luey Gaming Guy</title>
 	<link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" href="images/ShotoProfile.png">
+<style type="text/css">
+.hero {
+	height: unset;
+}
+
+.hero__content {
+	position: static;
+}
+
+@media screen and (min-width: 920px) {
+	.hero {
+		min-height: 100vh;
+	}
+}
+</style>
 </head>
 <body>
 	<header>
 	</header>
 	<div id="navbar-placeholder"></div>
 	<main>
-		<div class="ov-cont ban-cont">
-			<div class="ov-cont ban-txt">
+		<div class="ov-cont ban-cont hero">
+			<div class="ov-cont ban-txt hero__content">
 				<span class="ban-style">Twitch Streamer.</span><br />
 				<span class="ban-style">Online Retro Game Store.</span><br />
 				<span class="ban-style">Repairs & Mods.</span><br />

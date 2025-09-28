@@ -44,6 +44,12 @@ body {
 	font-style: bold;
 }
 
+#navbar-placeholder {
+	position: sticky;
+	top: 0;
+	z-index: 3;
+}
+
 .nav-logo-mobile {
 	display: inline-block;
 	box-sizing: border-box;
@@ -68,15 +74,12 @@ body {
 .topnav {
 	overflow: hidden;
 	background-color: #010101;
-	position: fixed;
-	left: 0;
-	top: 0;
-	z-index: 3;
-	width: 100%;
 }
 
 .topnav #navLinks {
 	display: none;
+	position: fixed;
+	width: 100%;
 }
 
 .topnav-link {
@@ -163,7 +166,6 @@ h4 {
 	text-align: left;
 	color: #ffffff;
 	position: relative;
-	margin-top: 50px;
 }
 
 .ban-txt {
@@ -294,7 +296,7 @@ h4 {
 	display: inline-block; 
 	box-sizing: border-box; 
 	position: relative; 
-	z-index; 1;
+	z-index: 1;
 }
 
 .emotes {
@@ -354,6 +356,10 @@ h4 {
 	padding-top: 10%;
 }
 
+.navbar-desktop {
+	display: none;
+}
+
 @media screen and (min-width: 470px) {
 	.ban-txt {	
 		font-size: 26px;
@@ -384,6 +390,10 @@ h4 {
 }
 
 @media screen and (min-width: 920px) {
+	.navbar-desktop {
+		display: block;
+	}
+
 	.mobile-container {
 		display: none;
 	}
@@ -461,7 +471,6 @@ h4 {
 
 	.ban-cont {
 		height: 100vh;
-		margin-top: 0px;
 	}
 
 	.ban-txt {
