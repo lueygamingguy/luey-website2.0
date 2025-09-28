@@ -191,25 +191,46 @@
 	};
 
 	function generateSlides(model, tier){
-		const container = $('.gb-carousel');
-		if(container.hasClass('slick-initialized')) container.slick('unslick'); 
-		container.empty();
-		slides[model][tier].forEach(src=>{
-			const price = pricing[model][tier];
-			const slide = `<div class="carousel-slide">
-				<img src="images/${src}" alt="${src}" style="width:100%; border-radius:10px;">
-				<div class="price-label">${price} (Tier ${tier})</div>
-			</div>`;
-			container.append(slide);
-		});
-		container.slick({
-			infinite:true,
-			slidesToShow:1,
-			slidesToScroll:1,
-			arrows:true,
-			dots:true
-		});
-	}
+    const container = $('.gb-carousel');
+    if(container.hasClass('slick-initialized')) container.slick('unslick'); 
+    container.empty();
+
+    // Remove old price/disclaimer if they exist
+    $('#price-display').remove();
+    $('#price-note').remove();
+
+    // Find the price
+    const price = pricing[model] && pricing[model][tier] ? pricing[model][tier] : "Price TBD";
+
+    // Add the price above the carousel
+    const priceBox = `<p id="price-display" style="font-size:18px; font-weight:bold; color:#010101; margin-bottom:5px;">
+        Price: ${price} (Tier ${tier})
+    </p>`;
+    container.before(priceBox);
+
+    // Add the disclaimer right below the price
+    const priceNote = `<p id="price-note" style="font-size:14px; color:#010101; margin-bottom:15px;">
+        *Prices do not include taxes, shipping, or handling.
+    </p>`;
+    $('#price-display').after(priceNote);
+
+    // Add the images
+    slides[model][tier].forEach(src=>{
+        const slide = `
+            <div class="carousel-slide">
+                <img src="images/${src}" alt="${src}" style="width:100%; border-radius:10px;">
+            </div>`;
+        container.append(slide);
+    });
+
+    container.slick({
+        infinite:true,
+        slidesToShow:1,
+        slidesToScroll:1,
+        arrows:true,
+        dots:true
+    });
+}
 
 	$(document).ready(function(){
 		$('#gb-tiers').hide();
