@@ -1,202 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mods & Custom Systems</title>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    h1 {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .selector {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .selector select {
-      margin: 0 10px;
-      padding: 8px;
-      font-size: 16px;
-    }
-    #price-box {
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    #price-display {
-      font-size: 18px;
-      font-weight: bold;
-      color: #010101;
-      margin: 5px 0;
-    }
-    #price-note {
-      font-size: 14px;
-      color: #010101;
-      margin: 0;
-    }
-    .carousel-container {
-      width: 90%;
-      max-width: 800px;
-      margin: 20px auto;
-    }
-    .carousel-slide img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 20px 10px;
-      margin-top: 40px;
-    }
-    footer nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-  </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mods & Custom Systems - Luey Gaming Guy</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<style>
+		.carousel-slide {
+			position: relative;
+			text-align: center;
+			color: #ffffff;
+		}
+		.carousel-slide .price-label {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(0,0,0,0.6);
+			padding: 5px 10px;
+			border-radius: 8px;
+			font-weight: bold;
+			font-family: AvenirB;
+		}
+		.tier-btn {
+			padding: 10px 15px;
+			margin: 5px;
+			font-size: 14px;
+			border-radius: 8px;
+			cursor: pointer;
+			border: 1px solid #010101;
+			background: #efefef;
+		}
+		.tier-btn.active {
+			background: #010101;
+			color: #ffffff;
+		}
+	</style>
 </head>
 <body>
-  <header>
-    <img src="images/BannerCustoms.jpg" alt="Mods & Custom Systems Banner">
-  </header>
+	<header></header>
+	<div id="navbar-placeholder"></div>
+	<main>
 
-  <h1>Mods & Custom Systems</h1>
+		<!-- Banner -->
+		<div class="inside-banner" style="background-image: url(images/BannerCustoms.jpg);">
+			<div class="inside-banner-over">
+				<h2 style="color: #ffffff;">Mods & Custom Systems</h2>
+			</div>
+		</div>
 
-  <div class="selector">
-    <label for="model">Choose a system:</label>
-    <select id="model">
-      <option value="">--Select--</option>
-      <option value="original">Original Game Boy</option>
-      <option value="pocket">Game Boy Pocket</option>
-      <option value="color">Game Boy Color</option>
-      <option value="advance">Game Boy Advance (No USB-C)</option>
-      <option value="advanceusb">Game Boy Advance (With USB-C)</option>
-      <option value="sp">Game Boy Advance SP</option>
-    </select>
+		<!-- Intro Box -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 30px;">
+			<div style="background: #efefef; border-radius: 20px; padding: 25px; display: inline-block; max-width: 900px;">
+				<h2>Custom Consoles & Game Boys</h2>
+				<div class="contentnorm" style="text-align: left;">
+					<p>Turn your favorite consoles into one-of-a-kind creations! From custom Game Boys to classic home consoles with new shells, I can bring your ideas to life with high-quality mods and designs. Request characters, themes, or colors — if it’s possible, I’ll make it happen.</p>
+					<ul>
+						<li>Game Boys: Original, Pocket, Color, Advance, Advance SP</li>
+						<li>Classic consoles: NES, SNES, N64, GameCube, Wii</li>
+						<li>Custom shells, themed designs, IPS upgrades, and more</li>
+					</ul>
+					<p>Click a Game Boy model below to see available tiers and example builds.</p>
+<p>*Note - all Game Boys have upgraded lcd screens!</p>
+				</div>
+			</div>
+		</div>
 
-    <label for="tier">Choose a tier:</label>
-    <select id="tier">
-      <option value="">--Select--</option>
-      <option value="1">Tier 1</option>
-      <option value="2">Tier 2</option>
-      <option value="3">Tier 3</option>
-    </select>
-  </div>
+		<!-- Game Boy Selector -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 30px;">
+			<select id="gb-model-selector" style="padding: 10px; font-size: 16px; border-radius: 8px;">
+				<option value="">Select a Game Boy Model</option>
+				<option value="original">Original Game Boy</option>
+				<option value="pocket">Game Boy Pocket</option>
+				<option value="color">Game Boy Color</option>
+				<option value="advance">Game Boy Advance (No USB-C)</option>
+				<option value="advance-usbc">Game Boy Advance (With USB-C)</option>
+				<option value="sp">Game Boy Advance SP</option>
+			</select>
+		</div>
 
-  <!-- Price + Disclaimer -->
-  <div id="price-box">
-    <p id="price-display">Select a model and tier to see pricing.</p>
-    <p id="price-note">*Prices do not include taxes, shipping, or handling.</p>
-  </div>
+		<!-- Tiers -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 20px;">
+			<div id="gb-tiers" style="display: none;">
+				<button class="tier-btn" data-tier="1">Tier 1</button>
+				<button class="tier-btn" data-tier="2">Tier 2</button>
+				<button class="tier-btn" data-tier="3">Tier 3</button>
+			</div>
+		</div>
 
-  <div class="carousel-container">
-    <div class="gb-carousel"></div>
-  </div>
+		<!-- Carousel Placeholder -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 30px;">
+			<div class="gb-carousel" style="max-width: 700px; margin: 0 auto;">
+				<!-- Slides will be injected by JS -->
+			</div>
+			<p style="margin-top: 15px;">Prices do not include taxes, shipping, or handling.</p>
+		</div>
 
-  <footer>
-    <p>&copy; 2025 Retro Reselling. All rights reserved.</p>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a> |
-      <a href="shop.html">Shop</a> |
-      <a href="custom-orders.html">Mods & Custom Systems</a> |
-      <a href="contact.html">Contact</a>
-    </nav>
-  </footer>
+		<!-- Classic Console Carousel -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 50px;">
+			<h2>Other Consoles (Reshells)</h2>
+			<div class="console-carousel" style="max-width: 800px; margin: 0 auto;">
+				<div><img src="images/N64Custom.png" alt="NES Reshell" style="width:100%; border-radius: 10px;"></div>
+				<div><img src="images/SNESCustom.png" alt="SNES Reshell" style="width:100%; border-radius: 10px;"></div>
+				<div><img src="images/NESCustom.png" alt="N64 Reshell" style="width:100%; border-radius: 10px;"></div>
+				<div><img src="images/GamecubeCustom.png" alt="GameCube Reshell" style="width:100%; border-radius: 10px;"></div>
+				<div><img src="images/WiiCustom.png" alt="Wii Reshell" style="width:100%; border-radius: 10px;"></div>
+			</div>
+			<p style="margin-top: 10px;">Themes, characters, and custom designs can be requested even if not shown.</p>
+		</div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <script>
-    const slides = {
-      original: {
-        1: ["OriginalGameboyTierOne1.png","OriginalGameboyTierOne2.png","OriginalGameboyTierOne3.png","OriginalGameboyTierOne4.png","OriginalGameboyTierOne5.png"],
-        2: ["OriginalGameboyTierTwo1.png","OriginalGameboyTierTwo2.png","OriginalGameboyTierTwo3.png","OriginalGameboyTierTwo4.png","OriginalGameboyTierTwo5.png"]
-      },
-      pocket: {
-        1: ["GameboyPocketTierOne1.png","GameboyPocketTierOne2.png","GameboyPocketTierOne3.png","GameboyPocketTierOne4.png","GameboyPocketTierOne5.png"],
-        2: ["GameboyPocketTierTwo1.png","GameboyPocketTierTwo2.png","GameboyPocketTierTwo3.png","GameboyPocketTierTwo4.png","GameboyPocketTierTwo5.png"]
-      },
-      color: {
-        1: ["GameboyColorTierOne1.png","GameboyColorTierOne2.png","GameboyColorTierOne3.png","GameboyColorTierOne4.png","GameboyColorTierOne5.png"],
-        2: ["GameboyColorTierTwo1.png","GameboyColorTierTwo2.png","GameboyColorTierTwo3.png","GameboyColorTierTwo4.png","GameboyColorTierTwo5.png"],
-        3: ["GameboyColorTierThree1.png","GameboyColorTierThree2.png","GameboyColorTierThree3.png","GameboyColorTierThree4.png","GameboyColorTierThree5.png"]
-      },
-      advance: {
-        1: ["GameboyAdvanceTierOne1.png","GameboyAdvanceTierOne2.png","GameboyAdvanceTierOne3.png","GameboyAdvanceTierOne4.png","GameboyAdvanceTierOne5.png"],
-        2: ["GameboyAdvanceTierTwo1.png","GameboyAdvanceTierTwo2.png","GameboyAdvanceTierTwo3.png","GameboyAdvanceTierTwo4.png","GameboyAdvanceTierTwo5.png"],
-        3: ["GameboyAdvanceTierThree1.png","GameboyAdvanceTierThree2.png","GameboyAdvanceTierThree3.png","GameboyAdvanceTierThree4.png","GameboyAdvanceTierThree5.png"]
-      },
-      advanceusb: {
-        1: ["GameboyAdvanceUSBTierOne1.png","GameboyAdvanceUSBTierOne2.png","GameboyAdvanceUSBTierOne3.png","GameboyAdvanceUSBTierOne4.png","GameboyAdvanceUSBTierOne5.png"],
-        2: ["GameboyAdvanceUSBTierTwo1.png","GameboyAdvanceUSBTierTwo2.png","GameboyAdvanceUSBTierTwo3.png","GameboyAdvanceUSBTierTwo4.png","GameboyAdvanceUSBTierTwo5.png"]
-      },
-      sp: {
-        1: ["GameboyAdvanceSPTierOne1.png","GameboyAdvanceSPTierOne2.png","GameboyAdvanceSPTierOne3.png","GameboyAdvanceSPTierOne4.png","GameboyAdvanceSPTierOne5.png"],
-        2: ["GameboyAdvanceSPTierTwo1.png","GameboyAdvanceSPTierTwo2.png","GameboyAdvanceSPTierTwo3.png","GameboyAdvanceSPTierTwo4.png","GameboyAdvanceSPTierTwo5.png"],
-        3: ["GameboyAdvanceSPTierThree1.png","GameboyAdvanceSPTierThree2.png","GameboyAdvanceSPTierThree3.png","GameboyAdvanceSPTierThree4.png","GameboyAdvanceSPTierThree5.png"]
-      }
-    };
+		<!-- How It Works -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 50px;">
+			<div style="background: #efefef; border-radius: 20px; padding: 25px; display: inline-block; max-width: 700px;">
+				<h2>How Custom Orders Work</h2>
+				<div class="contentnorm" style="text-align: left;">
+					<ul>
+						<li>Contact me through the <a href="contact.html">contact page</a> with your idea</li>
+						<li>Discuss details, pricing, and timeline</li>
+						<li>Send your console if needed (or I can build from scratch)</li>
+						<li>I create your custom system and ship it back</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-    const pricing = {
-      original: {1:"$135",2:"$160"},
-      pocket: {1:"$125",2:"$150"},
-      color: {1:"$145",2:"$160",3:"$195"},
-      advance: {1:"$165",2:"$180",3:"$195"},
-      advanceusb: {1:"$185",2:"$200"},
-      sp: {1:"$175",2:"$190",3:"$205"}
-    };
+		<!-- Bottom CTA / Disclaimer -->
+		<div class="ov-cont content" style="text-align: center; margin-top: 40px; margin-bottom: 50px;">
+			<div style="background: #efefef; border-radius: 20px; padding: 25px; display: inline-block; max-width: 750px;">
+				<div class="contentnorm" style="text-align: left;">
+					<p><strong>Note:</strong> Custom orders may have long wait times depending on availability of shells and base consoles. Buyer pays shipping. Estimates are provided before work begins. Some mods or consoles may be limited due to availability or technical restrictions.</p>
+					<div style="text-align: center; margin-top: 15px;">
+						<a href="contact.html" class="ban-btn" style="color: #010101; font-family: AvenirB;">Contact Me</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    function generateSlides(model, tier){
-      const container = $('.gb-carousel');
-      if(container.hasClass('slick-initialized')) container.slick('unslick'); 
-      container.empty();
+	</main>
+	<div id="footer-placeholder"></div>
+	<script src="navbar.js"></script>
 
-      const price = pricing[model] && pricing[model][tier] ? pricing[model][tier] : "Price TBD";
+	<script>
+	fetch('footer.html')
+		.then(response => response.text())
+		.then(data => {
+			document.getElementById('footer-placeholder').innerHTML = data;
+		});
 
-      console.log("Updating price for", model, "Tier", tier, ":", price);
+	const pricing = {
+		"original": {1: "$135", 2: "$160"},
+		"pocket": {1: "$125", 2: "$150"},
+		"color": {1: "$145", 2: "$160", 3: "$195"},
+		"advance": {1: "$165", 2: "$180", 3: "$195"},
+		"advance-usbc": {1: "$185", 2: "$200"},
+		"sp": {1: "$175", 2: "$190", 3: "$205"}
+	};
 
-      $('#price-display').text(Price: ${price} (Tier ${tier}));
+	const slides = {
+		"original": {
+			1:["OriginalGameboyTierOne1.png","OriginalGameboyTierOne2.png","OriginalGameboyTierOne3.png","OriginalGameboyTierOne4.png","OriginalGameboyTierOne5.png"],
+			2:["OriginalGameboyTierTwo1.png","OriginalGameboyTierTwo2.png","OriginalGameboyTierTwo3.png","OriginalGameboyTierTwo4.png","OriginalGameboyTierTwo5.png"]
+		},
+		"pocket": {
+			1:["GameboyPocketTierOne1.png","GameboyPocketTierOne2.png","GameboyPocketTierOne3.png","GameboyPocketTierOne4.png","GameboyPocketTierOne5.png"],
+			2:["GameboyPocketTierTwo1.png","GameboyPocketTierTwo2.png","GameboyPocketTierTwo3.png","GameboyPocketTierTwo4.png","GameboyPocketTierTwo5.png"]
+		},
+		"color": {
+			1:["GameboyColorTierOne1.png","GameboyColorTierOne2.png","GameboyColorTierOne3.png","GameboyColorTierOne4.png","GameboyColorTierOne5.png"],
+			2:["GameboyColorTierTwo1.png","GameboyColorTierTwo2.png","GameboyColorTierTwo3.png","GameboyColorTierTwo4.png","GameboyColorTierTwo5.png"],
+			3:["GameboyColorTierThree1.png","GameboyColorTierThree2.png","GameboyColorTierThree3.png","GameboyColorTierThree4.png","GameboyColorTierThree5.png"]
+		},
+		"advance": {
+			1:["GameboyAdvanceTierOne1.png","GameboyAdvanceTierOne2.png","GameboyAdvanceTierOne3.png","GameboyAdvanceTierOne4.png","GameboyAdvanceTierOne5.png"],
+			2:["GameboyAdvanceTierTwo1.png","GameboyAdvanceTierTwo2.png","GameboyAdvanceTierTwo3.png","GameboyAdvanceTierTwo4.png","GameboyAdvanceTierTwo5.png"],
+			3:["GameboyAdvanceTierThree1.png","GameboyAdvanceTierThree2.png","GameboyAdvanceTierThree3.png","GameboyAdvanceTierThree4.png","GameboyAdvanceTierThree5.png"]
+		},
+		"advance-usbc": {
+			1:["GameboyAdvanceUSBTierOne1.png","GameboyAdvanceUSBTierOne2.png","GameboyAdvanceUSBTierOne3.png","GameboyAdvanceUSBTierOne4.png","GameboyAdvanceUSBTierOne5.png"],
+			2:["GameboyAdvanceUSBTierTwo1.png","GameboyAdvanceUSBTierTwo2.png","GameboyAdvanceUSBTierTwo3.png","GameboyAdvanceUSBTierTwo4.png","GameboyAdvanceUSBTierTwo5.png"]
+		},
+		"sp": {
+			1:["GameboyAdvanceSPTierOne1.png","GameboyAdvanceSPTierOne2.png","GameboyAdvanceSPTierOne3.png","GameboyAdvanceSPTierOne4.png","GameboyAdvanceSPTierOne5.png"],
+			2:["GameboyAdvanceSPTierTwo1.png","GameboyAdvanceSPTierTwo2.png","GameboyAdvanceSPTierTwo3.png","GameboyAdvanceSPTierTwo4.png","GameboyAdvanceSPTierTwo5.png"],
+			3:["GameboyAdvanceSPTierThree1.png","GameboyAdvanceSPTierThree2.png","GameboyAdvanceSPTierThree3.png","GameboyAdvanceSPTierThree4.png","GameboyAdvanceSPTierThree5.png"]
+		}
+	};
 
-      if(slides[model] && slides[model][tier]){
-        slides[model][tier].forEach(src=>{
-          const slide = `<div class="carousel-slide">
-                           <img src="images/${src}" alt="${src}">
-                         </div>`;
-          container.append(slide);
-        });
+	function generateSlides(model, tier){
+    const container = $('.gb-carousel');
+    if(container.hasClass('slick-initialized')) container.slick('unslick'); 
+    container.empty();
 
-        container.slick({
-          infinite:true,
-          slidesToShow:1,
-          slidesToScroll:1,
-          arrows:true,
-          dots:true
-        });
-      }
-    }
+    // Remove old price/disclaimer if they exist
+    $('#price-display').remove();
+    $('#price-note').remove();
 
-    $('#model, #tier').on('change', function(){
-      const model = $('#model').val();
-      const tier = $('#tier').val();
-      if(model && tier){
-        generateSlides(model, tier);
-      }
+    // Find the price
+    const price = pricing[model] && pricing[model][tier] ? pricing[model][tier] : "Price TBD";
+
+    // Add the price above the carousel
+    const priceBox = `<p id="price-display" style="font-size:18px; font-weight:bold; color:#010101; margin-bottom:5px;">
+        Price: ${price} (Tier ${tier})
+    </p>`;
+    container.before(priceBox);
+
+    // Add the disclaimer right below the price
+    const priceNote = `<p id="price-note" style="font-size:14px; color:#010101; margin-bottom:15px;">
+        *Prices do not include taxes, shipping, or handling.
+    </p>`;
+    $('#price-display').after(priceNote);
+
+    // Add the images
+    slides[model][tier].forEach(src=>{
+        const slide = `
+            <div class="carousel-slide">
+                <img src="images/${src}" alt="${src}" style="width:100%; border-radius:10px;">
+            </div>`;
+        container.append(slide);
     });
-  </script>
+
+    container.slick({
+        infinite:true,
+        slidesToShow:1,
+        slidesToScroll:1,
+        arrows:true,
+        dots:true
+    });
+}
+
+	$(document).ready(function(){
+		$('#gb-tiers').hide();
+
+		$('#gb-model-selector').on('change',function(){
+			const model=$(this).val();
+			if(model){
+				$('#gb-tiers').show();
+				$('.tier-btn').removeClass('active');
+				$('.tier-btn').show();
+				if(!pricing[model][3]) $('.tier-btn[data-tier="3"]').hide();
+			} else {
+				$('#gb-tiers').hide();
+				if($('.gb-carousel').hasClass('slick-initialized')) $('.gb-carousel').slick('unslick');
+				$('.gb-carousel').empty();
+			}
+		});
+
+		$('.tier-btn').click(function(){
+			const tier = $(this).data('tier');
+			const model = $('#gb-model-selector').val();
+			$('.tier-btn').removeClass('active');
+			$(this).addClass('active');
+			generateSlides(model,tier);
+		});
+
+		$('.console-carousel').slick({
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			dots: true
+		});
+	});
+	</script>
+
 </body>
 </html>
