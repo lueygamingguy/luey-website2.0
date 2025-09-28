@@ -150,7 +150,6 @@
 			document.getElementById('footer-placeholder').innerHTML = data;
 		});
 
-	// Pricing data (for display on slides)
 	const pricing = {
 		"original": {1: "$135", 2: "$160"},
 		"pocket": {1: "$125", 2: "$150"},
@@ -160,49 +159,71 @@
 		"sp": {1: "$175", 2: "$190", 3: "$205"}
 	};
 
-	const maxSlides = 5;
+	const slides = {
+		"original": {
+			1:["OriginalGameboyTierOne1.png","OriginalGameboyTierOne2.png","OriginalGameboyTierOne3.png","OriginalGameboyTierOne4.png","OriginalGameboyTierOne5.png"],
+			2:["OriginalGameboyTierTwo1.png","OriginalGameboyTierTwo2.png","OriginalGameboyTierTwo3.png","OriginalGameboyTierTwo4.png","OriginalGameboyTierTwo5.png"]
+		},
+		"pocket": {
+			1:["GameboyPocketTierOne1.png","GameboyPocketTierOne2.png","GameboyPocketTierOne3.png","GameboyPocketTierOne4.png","GameboyPocketTierOne5.png"],
+			2:["GameboyPocketTierTwo1.png","GameboyPocketTierTwo2.png","GameboyPocketTierTwo3.png","GameboyPocketTierTwo4.png","GameboyPocketTierTwo5.png"]
+		},
+		"color": {
+			1:["GameboyColorTierOne1.png","GameboyColorTierOne2.png","GameboyColorTierOne3.png","GameboyColorTierOne4.png","GameboyColorTierOne5.png"],
+			2:["GameboyColorTierTwo1.png","GameboyColorTierTwo2.png","GameboyColorTierTwo3.png","GameboyColorTierTwo4.png","GameboyColorTierTwo5.png"],
+			3:["GameboyColorTierThree1.png","GameboyColorTierThree2.png","GameboyColorTierThree3.png","GameboyColorTierThree4.png","GameboyColorTierThree5.png"]
+		},
+		"advance": {
+			1:["GameboyAdvanceTierOne1.png","GameboyAdvanceTierOne2.png","GameboyAdvanceTierOne3.png","GameboyAdvanceTierOne4.png","GameboyAdvanceTierOne5.png"],
+			2:["GameboyAdvanceTierTwo1.png","GameboyAdvanceTierTwo2.png","GameboyAdvanceTierTwo3.png","GameboyAdvanceTierTwo4.png","GameboyAdvanceTierTwo5.png"],
+			3:["GameboyAdvanceTierThree1.png","GameboyAdvanceTierThree2.png","GameboyAdvanceTierThree3.png","GameboyAdvanceTierThree4.png","GameboyAdvanceTierThree5.png"]
+		},
+		"advance-usbc": {
+			1:["GameboyAdvanceUSBTierOne1.png","GameboyAdvanceUSBTierOne2.png","GameboyAdvanceUSBTierOne3.png","GameboyAdvanceUSBTierOne4.png","GameboyAdvanceUSBTierOne5.png"],
+			2:["GameboyAdvanceUSBTierTwo1.png","GameboyAdvanceUSBTierTwo2.png","GameboyAdvanceUSBTierTwo3.png","GameboyAdvanceUSBTierTwo4.png","GameboyAdvanceUSBTierTwo5.png"]
+		},
+		"sp": {
+			1:["GameboyAdvanceSPTierOne1.png","GameboyAdvanceSPTierOne2.png","GameboyAdvanceSPTierOne3.png","GameboyAdvanceSPTierOne4.png","GameboyAdvanceSPTierOne5.png"],
+			2:["GameboyAdvanceSPTierTwo1.png","GameboyAdvanceSPTierTwo2.png","GameboyAdvanceSPTierTwo3.png","GameboyAdvanceSPTierTwo4.png","GameboyAdvanceSPTierTwo5.png"],
+			3:["GameboyAdvanceSPTierThree1.png","GameboyAdvanceSPTierThree2.png","GameboyAdvanceSPTierThree3.png","GameboyAdvanceSPTierThree4.png","GameboyAdvanceSPTierThree5.png"]
+		}
+	};
 
 	function generateSlides(model, tier){
 		const container = $('.gb-carousel');
-		container.slick('unslick'); // reset carousel
+		if(container.hasClass('slick-initialized')) container.slick('unslick'); 
 		container.empty();
-
-		for(let i=1;i<=maxSlides;i++){
+		slides[model][tier].forEach(src=>{
 			const price = pricing[model][tier];
 			const slide = `<div class="carousel-slide">
-				<img src="images/MerchPic.png" alt="Example ${i}" style="width:100%; border-radius:10px;">
+				<img src="images/${src}" alt="${src}" style="width:100%; border-radius:10px;">
 				<div class="price-label">${price} (Tier ${tier})</div>
 			</div>`;
 			container.append(slide);
-		}
-
+		});
 		container.slick({
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			arrows: true,
-			dots: true
+			infinite:true,
+			slidesToShow:1,
+			slidesToScroll:1,
+			arrows:true,
+			dots:true
 		});
 	}
 
 	$(document).ready(function(){
-		// Hide tiers initially
 		$('#gb-tiers').hide();
 
-		$('#gb-model-selector').on('change', function(){
-			const model = $(this).val();
+		$('#gb-model-selector').on('change',function(){
+			const model=$(this).val();
 			if(model){
 				$('#gb-tiers').show();
 				$('.tier-btn').removeClass('active');
-
-				// Hide tier 3 if not available
 				$('.tier-btn').show();
-				if(!pricing[model][3]){
-					$('.tier-btn[data-tier="3"]').hide();
-				}
-			}else{
+				if(!pricing[model][3]) $('.tier-btn[data-tier="3"]').hide();
+			} else {
 				$('#gb-tiers').hide();
-				$('.gb-carousel').slick('unslick').empty();
+				if($('.gb-carousel').hasClass('slick-initialized')) $('.gb-carousel').slick('unslick');
+				$('.gb-carousel').empty();
 			}
 		});
 
@@ -211,10 +232,9 @@
 			const model = $('#gb-model-selector').val();
 			$('.tier-btn').removeClass('active');
 			$(this).addClass('active');
-			generateSlides(model, tier);
+			generateSlides(model,tier);
 		});
 
-		// Initialize classic console carousel
 		$('.console-carousel').slick({
 			infinite: true,
 			slidesToShow: 1,
