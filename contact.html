@@ -1,44 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Luey Gaming Guy</title>
-  <link rel="stylesheet" href="style.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact - Luey Gaming Guy</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		/* Banner */
+		.inside-banner {
+			position: relative;
+			background-size: cover;
+			background-position: center;
+			height: 250px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.inside-banner-over h2 {
+			color: #ffffff;
+			font-size: 40px;
+			font-family: AvenirB;
+			text-align: center;
+			text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+		}
+
+		/* Intro text */
+		.contact-intro {
+			text-align: center;
+			font-size: 20px;
+			margin: 40px 20px 30px 20px;
+			color: #010101;
+			max-width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		/* Form container */
+		.form-container {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 40px;
+		}
+
+		iframe {
+			border-radius: 15px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+			max-width: 100%;
+		}
+
+		/* Contact links */
+		.contact-links {
+			text-align: center;
+			margin-bottom: 60px;
+		}
+
+		.contact-links a {
+			display: inline-block;
+			margin: 10px 0;
+			padding: 12px 25px;
+			background: #010101;
+			color: #ffffff;
+			border-radius: 10px;
+			font-family: AvenirB;
+			text-decoration: none;
+			transition: 0.3s;
+		}
+
+		.contact-links a:hover {
+			background: #ff6600;
+			color: #ffffff;
+		}
+	</style>
 </head>
 <body>
-  <div id="navbar-placeholder"></div>
+	<header></header>
+	<div id="navbar-placeholder"></div>
 
-  <main class="container">
-    <h1>Contact</h1>
-    <p>For commissions, collabs, or business inquiries — fill the form or email directly.</p>
+	<main>
+		<!-- Banner -->
+		<div class="inside-banner" style="background-image: url('images/BannerContact.png');">
+			<div class="inside-banner-over">
+				<h2>Contact</h2>
+			</div>
+		</div>
 
-    <!-- Google Form embed: replace URL with the embed URL for your Google Form -->
-<section id="contact">
-<h2>Contact Me</h2>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwLFFO3BUUGzM7018eBlYXWVjwNNbxdMCS6dtxpoEUdYUFHg/viewform?embedded=true" width="640" height="1090" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-</section>
-    <hr style="margin:20px 0;">
-    <p>Email: <a href="mailto:luey_gaming_guy@yahoo.com">youremail@example.com</a></p>
-    <p>Discord: <a href="https://discord.gg/cMEmc3qvUc" target="_blank">Join my server</a></p>
-  </main>
+		<!-- Intro Text -->
+		<div class="contact-intro">
+			<p>For commissions, collabs, or business inquiries - fill out the form or email me directly.</p>
+		</div>
 
-<div id="footer-placeholder"></div>
+		<!-- Google Form -->
+		<div class="form-container">
+			<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwLFFO3BUUGzM7018eBlYXWVjwNNbxdMCS6dtxpoEUdYUFHg/viewform?embedded=true" width="640" height="1090" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+		</div>
+
+		<!-- Email and Discord -->
+		<div class="contact-links">
+			<a href="mailto:Luey_Gaming_Guy@yahoo.com">Luey_Gaming_Guy@yahoo.com</a><br>
+			<a href="https://discord.gg/PqXvNAbBuq" target="_blank">Message me on Discord!</a>
+		</div>
+
+	</main>
+
+	<div id="footer-placeholder"></div>
 	<script src="navbar.js"></script>
+	<script>
+		fetch('footer.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('footer-placeholder').innerHTML = data;
+			});
+	</script>
 </body>
-<script>
-function navFunction() {
-	var x = document.getElementById("navLinks");
-	if (x.style.display === "block") {
-		x.style.display = "none";
-	} else {
-		x.style.display = "block";
-	}
-}
-fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-      });
-</script>
 </html>
