@@ -94,14 +94,14 @@
 		<!-- Carousel Placeholder -->
 		<div class="ov-cont content" style="text-align: center; margin-top: 30px;">
 			<div class="gb-carousel" style="max-width: 700px; margin: 0 auto;">
-				<!-- Slides will be injected by JS -->
+				<!-- Slides injected by JS -->
 			</div>
 			<p style="margin-top: 15px;">Prices do not include taxes, shipping, or handling.</p>
 		</div>
 
 		<!-- Classic Console Carousel -->
 		<div class="ov-cont content" style="text-align: center; margin-top: 50px;">
-			<h2>Other Consoles (Reshells & Mods)</h2>
+			<h2>Other Consoles (Reshells)</h2>
 			<div class="console-carousel" style="max-width: 800px; margin: 0 auto;">
 				<div><img src="images/MerchPic.png" alt="NES Reshell" style="width:100%; border-radius: 10px;"></div>
 				<div><img src="images/MerchPic.png" alt="SNES Reshell" style="width:100%; border-radius: 10px;"></div>
@@ -161,17 +161,25 @@
 	};
 
 	const maxSlides = 5;
+	let carouselInitialized = false;
 
 	function generateSlides(model, tier){
 		const container = $('.gb-carousel');
-		container.slick('unslick'); // reset carousel
+		if(carouselInitialized){
+			container.slick('unslick');
+			carouselInitialized = false;
+		}
 		container.empty();
 
-		for(let i=1;i<=maxSlides;i++){
-			const price = pricing[model][tier];
+		for(let i=1; i<=maxSlides; i++){
+			let imageName = '';
+			if(tier === 1) imageName = ${capitalizeModel(model)}TierOne${i}.png;
+			else if(tier === 2) imageName = ${capitalizeModel(model)}TierTwo${i}.png;
+			else if(tier === 3) imageName = ${capitalizeModel(model)}TierThree${i}.png;
+
 			const slide = `<div class="carousel-slide">
-				<img src="images/MerchPic.png" alt="Example ${i}" style="width:100%; border-radius:10px;">
-				<div class="price-label">${price} (Tier ${tier})</div>
+				<img src="images/${imageName}" alt="Example ${i}" style="width:100%; border-radius:10px;">
+				<div class="price-label">${pricing[model][tier]} (Tier ${tier})</div>
 			</div>`;
 			container.append(slide);
 		}
@@ -183,10 +191,15 @@
 			arrows: true,
 			dots: true
 		});
+
+		carouselInitialized = true;
+	}
+
+	function capitalizeModel(model){
+		return model.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('') + '';
 	}
 
 	$(document).ready(function(){
-		// Hide tiers initially
 		$('#gb-tiers').hide();
 
 		$('#gb-model-selector').on('change', function(){
@@ -200,15 +213,23 @@
 				if(!pricing[model][3]){
 					$('.tier-btn[data-tier="3"]').hide();
 				}
+
+				// Optional: auto-click Tier 1 when model is selected
+				$('.tier-btn[data-tier="1"]').click();
 			}else{
 				$('#gb-tiers').hide();
-				$('.gb-carousel').slick('unslick').empty();
+				if(carouselInitialized){
+					$('.gb-carousel').slick('unslick');
+					carouselInitialized = false;
+				}
+				$('.gb-carousel').empty();
 			}
 		});
 
 		$('.tier-btn').click(function(){
 			const tier = $(this).data('tier');
 			const model = $('#gb-model-selector').val();
+			if(!model) return;
 			$('.tier-btn').removeClass('active');
 			$(this).addClass('active');
 			generateSlides(model, tier);
