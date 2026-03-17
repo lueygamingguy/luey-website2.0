@@ -229,16 +229,16 @@ function navFunction() {
 		const price = pricing[model] && pricing[model][tier] ? pricing[model][tier] : "Price TBD";
 
 		// Add the price above the carousel
-		//const priceBox = `<p id="price-display" style="font-size:18px; font-weight:bold; color:#010101; margin-bottom:5px;">
-		//	Price: ${price} (Tier ${tier})
-		//</p>`;
-		//container.before(priceBox);
+		const priceBox = `<p id="price-display" style="display: none; font-size: 0px;">
+			Price: ${price} (Tier ${tier})
+		</p>`;
+		container.before(priceBox);
 
 		// Add the disclaimer right below the price
-		//const priceNote = `<p id="price-note" style="font-size:14px; color:#010101; margin-bottom:15px;">
+		const priceNote = `<p id="price-note" style="font-size:14px; color:#010101; margin-bottom:15px;">
 			*Prices do not include taxes, shipping, or handling.
-		//</p>`;
-		//$('#price-display').after(priceNote);
+		</p>`;
+		$('#price-display').after(priceNote);
 
 		// Add the images
 		slides[model][tier].forEach(src=>{
@@ -272,8 +272,8 @@ function navFunction() {
 				$('#gb-tiers').hide();
 				if($('.gb-carousel').hasClass('slick-initialized')) $('.gb-carousel').slick('unslick');
 				$('.gb-carousel').empty();
-				//$('#price-display').remove();
-				//$('#price-note').remove();
+				$('#price-display').remove();
+				$('#price-note').remove();
 			}
 		});
 
